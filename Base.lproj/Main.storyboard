@@ -21,7 +21,7 @@
                                 <rect key="frame" x="235" y="178" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <segue destination="xlr-Im-DNU" kind="presentation" id="A20-mr-VW2"/>
+                                    <segue destination="xlr-Im-DNU" kind="presentation" id="lPj-hb-EYn"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -41,18 +41,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="7Q0-ww-Sxo">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="dNu-Kq-8WF">
                                 <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7Q0-ww-Sxo" id="SRm-VD-Kw0">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dNu-Kq-8WF" id="h0I-P0-1m5">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="xlr-Im-DNU" id="dQM-70-SZf"/>
-                            <outlet property="delegate" destination="xlr-Im-DNU" id="DPD-dG-WzN"/>
+                            <outlet property="dataSource" destination="xlr-Im-DNU" id="9mF-D0-P3O"/>
+                            <outlet property="delegate" destination="xlr-Im-DNU" id="Knz-TX-PJl"/>
                         </connections>
                     </tableView>
                 </tableViewController>
