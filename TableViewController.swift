@@ -51,5 +51,23 @@ class TableViewController: UITableViewController {
         cell.addSubview(label)
         return cell*/
     }
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {        let rowIndexPath = tableView.indexPathForSelectedRow!
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let userVC = mainStoryboard.instantiateViewControllerWithIdentifier("WebViewControlID") //as! UserViewController
+        presentViewController(userVC, animated: true, completion: nil)
+/*
+        var nameString:String
+        var segueString:String
+        nameString = self.myarray[rowIndexPath.section].lowercaseString
+        segueString = nameString + "View"
+        print(segueString)
+        //self.performSegueWithIdentifier(segueString, sender: self)
+        self.performSegueWithIdentifier(segueString, sender: self)*/
+    }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        var destinationViewController = segue.destination as! PhotoViewController
+        
+        destinationViewController.image = self.imageView.image
+    }
 }
