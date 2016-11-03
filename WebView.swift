@@ -7,16 +7,20 @@
 //
 
 import UIKit
+import Foundation
 
 class WebView: UIViewController {
-    
+    var test = 0
     @IBOutlet var webView: UIWebView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        let url = "https://sacs-backend-chrisblutz.c9users.io"
+        var url = "https://sacs-backend-chrisblutz.c9users.io/archives/"
+        // pages on 51,54,56
+        url+="\(test)"
         let requestURL = NSURL(string:url)
         let requesting = NSURLRequest(URL: requestURL!)
         webView.loadRequest(requesting)
+        print(test)
         // Do any additional setup after loading the view, typically from a nib.
     }
     

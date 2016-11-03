@@ -13,6 +13,7 @@ class TableViewController: UITableViewController {
     //@IBOutlet var tableView: UITableView!
     let myarray = ["item1", "item2", "item3"]
     let images = ["homesteadhigh"]
+    var pageToOpen = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,22 +53,28 @@ class TableViewController: UITableViewController {
         return cell*/
     }
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {        let rowIndexPath = tableView.indexPathForSelectedRow!
-        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        /*let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let userVC = mainStoryboard.instantiateViewControllerWithIdentifier("WebViewControlID") //as! UserViewController
-        presentViewController(userVC, animated: true, completion: nil)
-/*
+        presentViewController(userVC, animated: true, completion: nil) // this seems to not call prepareForSegue, is it something different?
+        */
+
         var nameString:String
         var segueString:String
-        nameString = self.myarray[rowIndexPath.section].lowercaseString
+        nameString = self.myarray[rowIndexPath.row].lowercaseString
         segueString = nameString + "View"
         print(segueString)
         //self.performSegueWithIdentifier(segueString, sender: self)
-        self.performSegueWithIdentifier(segueString, sender: self)*/
+        let pages=[51,54,56]
+        pageToOpen = pages[rowIndexPath.row]
+        self.performSegueWithIdentifier("toWebView", sender: self)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        var destinationViewController = segue.destination as! PhotoViewController
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        //segue may not be as broad as I first imagined, consider creating one from this to webview so this method is called
         
-        destinationViewController.image = self.imageView.image
+        
+        //doesn't currently enter this; perhaps it isn't using segue to transition?
+        let destinationViewController = segue.destinationViewController as! WebView
+        destinationViewController.test = pageToOpen
     }
 }

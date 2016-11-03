@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -65,6 +66,9 @@
                             <outlet property="delegate" destination="xlr-Im-DNU" id="Knz-TX-PJl"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="qcr-Qn-Wbz" kind="show" identifier="toWebView" id="G0G-yq-zRU"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AKo-lZ-Hgk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -82,12 +86,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iix-FB-CbH">
+                            <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iix-FB-CbH">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="iix-FB-CbH" secondAttribute="trailing" constant="-20" id="0rG-EW-wac"/>
+                            <constraint firstItem="iix-FB-CbH" firstAttribute="top" secondItem="IGe-Cm-UXM" secondAttribute="bottom" constant="-20" id="E74-1u-ptW"/>
+                            <constraint firstItem="uAF-kz-BxO" firstAttribute="top" secondItem="iix-FB-CbH" secondAttribute="bottom" id="mQR-VN-RTg"/>
+                            <constraint firstItem="iix-FB-CbH" firstAttribute="leading" secondItem="m6E-AD-MUh" secondAttribute="leadingMargin" constant="-20" id="x0D-UQ-dKW"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
@@ -99,4 +109,7 @@
             <point key="canvasLocation" x="305" y="272"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="G0G-yq-zRU"/>
+    </inferredMetricsTieBreakers>
 </document>
