@@ -21,7 +21,12 @@ class WebView: UIViewController {
         let requesting = NSURLRequest(URL: requestURL!)
         webView.loadRequest(requesting)
         print(test)
+        let notification = UILocalNotification()
+        notification.alertBody = "test" // text that will be displayed in the notification
+        notification.alertAction = "open"
+        notification.fireDate = NSDate(timeIntervalSinceReferenceDate: 5) // todo item due date (when notification will be fired) notification.soundName = UILocalNotificationDefaultSoundName // play default sound
         // Do any additional setup after loading the view, typically from a nib.
+        UIApplication.sharedApplication().scheduleLocalNotification(notification)
     }
     
     override func didReceiveMemoryWarning() {
@@ -31,4 +36,3 @@ class WebView: UIViewController {
     
     
 }
-

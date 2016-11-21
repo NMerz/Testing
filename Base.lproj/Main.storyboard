@@ -6,10 +6,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Splash View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Testing" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="SplashViewController" customModule="Testing" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -22,7 +22,7 @@
                                 <rect key="frame" x="231" y="125" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <segue destination="xlr-Im-DNU" kind="presentation" id="lPj-hb-EYn"/>
+                                    <segue destination="xlr-Im-DNU" kind="show" identifier="showApp" id="lPj-hb-EYn"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yQb-SY-OJV">
@@ -110,6 +110,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="G0G-yq-zRU"/>
+        <segue reference="Qb1-fK-Qgi"/>
     </inferredMetricsTieBreakers>
 </document>
