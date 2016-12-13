@@ -17,16 +17,16 @@ class WebView: UIViewController {
         var url = "https://sacs-backend-chrisblutz.c9users.io/archives/"
         // pages on 51,54,56
         url+="\(test)"
-        let requestURL = NSURL(string:url)
-        let requesting = NSURLRequest(URL: requestURL!)
+        let requestURL = URL(string:url)
+        let requesting = URLRequest(url: requestURL!)
         webView.loadRequest(requesting)
         print(test)
         let notification = UILocalNotification()
         notification.alertBody = "test" // text that will be displayed in the notification
         notification.alertAction = "open"
-        notification.fireDate = NSDate(timeIntervalSinceReferenceDate: 5) // todo item due date (when notification will be fired) notification.soundName = UILocalNotificationDefaultSoundName // play default sound
+        notification.fireDate = Date(timeIntervalSinceReferenceDate: 5) // todo item due date (when notification will be fired) notification.soundName = UILocalNotificationDefaultSoundName // play default sound
         // Do any additional setup after loading the view, typically from a nib.
-        UIApplication.sharedApplication().scheduleLocalNotification(notification)
+        UIApplication.shared.scheduleLocalNotification(notification)
     }
     
     override func didReceiveMemoryWarning() {

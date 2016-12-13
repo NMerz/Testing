@@ -20,7 +20,7 @@ class TableViewController: UITableViewController {
         // Do any additional setup after loading the view, typically from a nib.
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "customcell")
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "customcell")
     }
     
     override func didReceiveMemoryWarning() {
@@ -28,12 +28,12 @@ class TableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func tableView(tableView:UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView:UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.myarray.count;
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("customcell", forIndexPath: indexPath) as UITableViewCell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "customcell", for: indexPath) as UITableViewCell
         cell.textLabel?.text = myarray[indexPath.item]
         if indexPath.item<images.count {
             let image : UIImage = UIImage(named: images[indexPath.item])!
@@ -52,7 +52,7 @@ class TableViewController: UITableViewController {
         cell.addSubview(label)
         return cell*/
     }
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {        let rowIndexPath = tableView.indexPathForSelectedRow!
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {        let rowIndexPath = tableView.indexPathForSelectedRow!
         /*let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let userVC = mainStoryboard.instantiateViewControllerWithIdentifier("WebViewControlID") //as! UserViewController
         presentViewController(userVC, animated: true, completion: nil) // this seems to not call prepareForSegue, is it something different?
@@ -60,21 +60,21 @@ class TableViewController: UITableViewController {
 
         var nameString:String
         var segueString:String
-        nameString = self.myarray[rowIndexPath.row].lowercaseString
+        nameString = self.myarray[rowIndexPath.row].lowercased()
         segueString = nameString + "View"
         print(segueString)
         //self.performSegueWithIdentifier(segueString, sender: self)
         let pages=[51,54,56]
         pageToOpen = pages[rowIndexPath.row]
-        self.performSegueWithIdentifier("toWebView", sender: self)
+        self.performSegue(withIdentifier: "toWebView", sender: self)
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
         //segue may not be as broad as I first imagined, consider creating one from this to webview so this method is called
         
         
         //doesn't currently enter this; perhaps it isn't using segue to transition?
-        let destinationViewController = segue.destinationViewController as! WebView
+        let destinationViewController = segue.destination as! WebView
         destinationViewController.test = pageToOpen
     }
 }
